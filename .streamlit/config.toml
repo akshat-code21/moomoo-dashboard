@@ -1,0 +1,15 @@
+[theme]
+# Dark, calm financial-app palette. Override here if you want lighter.
+base = "dark"
+primaryColor = "#3b82f6"
+backgroundColor = "#0b1220"
+secondaryBackgroundColor = "#141c2e"
+textColor = "#e2e8f0"
+font = "sans serif"
+
+[server]
+runOnSave = true
+headless = false
+
+[browser]
+gatherUsageStats = false
