@@ -1,4 +1,4 @@
-futu-api>=9.0
+# futu-api>=9.0
 pdfplumber>=0.11
 pandas>=2.2
 numpy>=1.26
