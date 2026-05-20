@@ -59,3 +59,4 @@ data/dashboard.pid
 *.db-journal
 *.sqlite
 *.sqlite3
+!data/portfolio_demo.db

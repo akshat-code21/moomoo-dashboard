@@ -23,6 +23,7 @@ To inspect the DB outside Python:
     .schema cash_events
 """
 
+import os
 from pathlib import Path
 from sqlalchemy import (
     create_engine, Column, Integer, Float, String, Date, DateTime, ForeignKey,
@@ -31,7 +32,10 @@ from sqlalchemy import (
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = PROJECT_ROOT / "data" / "portfolio.db"
+# Allow override via env var so Streamlit Cloud can point at a bundled demo DB
+# without changing code.
+_default_db = str(PROJECT_ROOT / "data" / "portfolio.db")
+DB_PATH = Path(os.environ.get("PORTFOLIO_DB_PATH", _default_db))
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 engine = create_engine(f"sqlite:///{DB_PATH}", future=True)
